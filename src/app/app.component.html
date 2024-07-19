@@ -1,0 +1,60 @@
+<div class="App">
+  <div class="container form-container">
+    <form (ngSubmit)="handleSubmit()">
+      <div class="row mb-3">
+        <div class="col">
+          <label>
+            Bucket X
+          </label>
+            <input type="number" [(ngModel)]="x" name="x" class="form-control" required />
+          
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label>
+            Bucket Y
+          </label>
+            <input type="number" [(ngModel)]="y" name="y" class="form-control" required />
+          
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label>
+            Amount Wanted (Z)
+          </label>
+          <input type="number" [(ngModel)]="z" name="z" class="form-control" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </form>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </div>
+
+  <div class="steps" *ngIf="steps.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Bucket X</th>
+          <th>Bucket Y</th>
+          <th>Explanation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let step of steps; let index = index">
+          <td>{{ step.jugX }}</td>
+          <td>{{ step.jugY }}</td>
+          <td>{{ step.action }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="solved">SOLVED</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
